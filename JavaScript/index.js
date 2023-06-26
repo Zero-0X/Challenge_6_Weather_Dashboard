@@ -24,13 +24,13 @@ searchForm.addEventListener('click', function (event) {
 });
 
 // Fetch weather data from OpenWeather API
-function fetchWeatherData(city) {
-    const apiUrl = `https://api.openweathermap.org/data/3.0/onecall/weather?lat={lat}&lon={lon}&date={date}&units={imperial}q=${city}&appid=${apiKey}`;
+function fetchWeatherData() {
+    const apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={minute}&appid=${apiKey}`;
 
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
-            displayCurrentWeather(data);
+            displayCurrentWeather(data.main, data.weather[0], data.wind);
             saveSearchHistory(data.name);
         })
         .catch(error => {
@@ -52,5 +52,12 @@ function displayCurrentWeather(data) {
 // Save city to search history
 function saveSearchHistory(city) {
     let history = localStorage.getItem('searchHistory');
-    history = 'history: ? JSON.parse(history)';
+    let searchHistory = [];
+
+    if (history) {
+        searchHistory = JSON.parse(history);
+    }
+
+    searchHistory.push(city);
+    localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
 }
