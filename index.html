@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Challenge_6_Weather_Dashboard/CSS/style.css">
+    <title>Challenge 6 Weather Dashboard</title>
+</head>
+
+<body>
+    <Header>
+        <h1>Weather Dashboard</h1>
+    </Header>
+    <main>
+        <form action="">
+            <input type="text" placeholder="Enter City Name">
+            <button>Search</button>
+        </form>
+        <div class="weather">
+        </div>
+
+        <section id="current-weather">
+            <h2 id="city-name"></h2>
+            <div id="current-conditions">
+                <p id="date"></p>
+                <img id="weather-icon" alt="Weather Icon">
+                <p id="temperature"></p>
+                <p id="humidity"></p>
+                <p id="wind-speed"></p>
+            </div>
+        </section>
+
+        <section id="forecast">
+            <h2>5-Day Forecast</h2>
+            <div id="forecast-container"></div>
+        </section>
+
+        <aside id="search-history">
+            <h2>Search History</h2>
+            <ul id="history-list"></ul>
+        </aside>
+    </main>
+    <footer>
+        <h3>Created by Roman V Kovbasniuk</h3>
+    </footer>
+    <script src="./Challenge_6_Weather_Dashboard/JavaScript/script.js"></script>
+</body>
+
+</html>
+
+<!-- 
+AS A traveler
+I WANT to see the weather outlook for multiple cities
+SO THAT I can plan a trip accordingly
+
+Acceptance Criteria
+
+GIVEN a weather dashboard with form inputs
+WHEN I search for a city
+THEN I am presented with current and future conditions for that city and that city is added to the search history
+WHEN I view current weather conditions for that city
+THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, and the wind speed
+WHEN I view future weather conditions for that city
+THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
+WHEN I click on a city in the search history
+THEN I am again presented with current and future conditions for that city -->
