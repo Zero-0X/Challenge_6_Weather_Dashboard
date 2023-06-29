@@ -3,7 +3,7 @@ const apiKey = '9a9c2d5e1e1c21fa72b6458bdf19ff87';
 
 
 // Elements
-const searchForm = document.getElementById('search-form');
+const searchButton = document.querySelector('#search-form button');
 const cityInput = document.getElementById('city-input');
 const cityName = document.getElementById('city-name');
 const dateElement = document.getElementById('date');
@@ -16,7 +16,7 @@ const historyList = document.getElementById('history-list');
 let city;
 
 // Event Listener for search form submission
-searchForm.addEventListener('click', function (event) {
+searchButton.addEventListener('click', function (event) {
     event.preventDefault();
     city = cityInput.value.trim();
 
@@ -27,7 +27,7 @@ searchForm.addEventListener('click', function (event) {
 });
 
 // Fetch weather data from OpenWeather API
-function fetchWeatherData() {
+function fetchWeatherData(city) {
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}&units=imperial&q=${city},US`;
 
     fetch(apiUrl)
@@ -50,9 +50,9 @@ function fetchWeatherData() {
 // Display current weather conditions
 function displayCurrentWeather(main, weather, wind) {
     cityName.textContent = main.name;
-    dateElement.textContent = dayjs().format;
+    dateElement.textContent = dayjs().format();
     weatherIcon.setAttribute('src', `https://openweathermap.org/img/w/${weather[0].icon}.png`);
-    temperature.textContent = `Temperature: ${main.temp}°C`;
+    temperature.textContent = `Temperature: ${main.temp}°F`;
     humidity.textContent = `Humidity: ${main.humidity}%`;
     windSpeed.textContent = `Wind Speed: ${wind.speed} m/s`;
 }
@@ -66,6 +66,10 @@ function saveSearchHistory(city) {
         searchHistory = JSON.parse(history);
     }
 
-    searchHistory.push(city);
+    if (!searchHistory.includes(city)) {
+        searchHistory.push(city);
+    }
+    // searchHistory.push(city);
+
     localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
 }
