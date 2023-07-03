@@ -31,11 +31,11 @@ function fetchWeatherData(city) {
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
-             console.log(data);
+            console.log(data);
             displayCurrentWeather(data.main, data.weather, data.wind);
             saveSearchHistory(data.name);
 
-           
+
         })
         .catch(error => {
             console.log('Error fetching weather data:', error);
@@ -48,7 +48,7 @@ function fetchWeatherData(city) {
 function displayCurrentWeather(main, weather, wind) {
     cityName.textContent = `${main.name}`;
     dateElement.textContent = dayjs().format('MMMM D, YYYY');
-    weatherIcon.setAttribute('src', `http://openweathermap.org/img/w/11d.png`);
+    weatherIcon.setAttribute('src', `http://openweathermap.org/img/w/04d.png`);
     temperature.textContent = `Temperature: ${main.temp}°F`;
     humidity.textContent = `Humidity: ${main.humidity}%`;
     windSpeed.textContent = `Wind Speed: ${wind.speed} m/s`;
@@ -69,3 +69,6 @@ function saveSearchHistory(city) {
 
     localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
 }
+
+
+
