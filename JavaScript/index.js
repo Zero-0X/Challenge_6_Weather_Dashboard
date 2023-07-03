@@ -32,7 +32,7 @@ function fetchWeatherData(city) {
         .then(response => response.json())
         .then(data => {
              console.log(data);
-            displayCurrentWeather(data.main, data.weather[0], data.wind);
+            displayCurrentWeather(data.main, data.weather, data.wind);
             saveSearchHistory(data.name);
 
            
@@ -42,14 +42,13 @@ function fetchWeatherData(city) {
             // Display error message to the user
         });
 }
-// const data = { format: function() {}};
-// data.format(); 
+
 
 // Display current weather conditions
 function displayCurrentWeather(main, weather, wind) {
-    cityName.textContent = main.name;
-    dateElement.textContent = dayjs().format();
-    weatherIcon.setAttribute('src', `https://openweathermap.org/img/w/${weather[0].icon}.png`);
+    cityName.textContent = `${main.name}`;
+    dateElement.textContent = dayjs().format('MMMM D, YYYY');
+    weatherIcon.setAttribute('src', `http://openweathermap.org/img/w/11d.png`);
     temperature.textContent = `Temperature: ${main.temp}°F`;
     humidity.textContent = `Humidity: ${main.humidity}%`;
     windSpeed.textContent = `Wind Speed: ${wind.speed} m/s`;
