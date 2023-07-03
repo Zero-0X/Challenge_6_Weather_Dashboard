@@ -1,6 +1,4 @@
 const apiKey = '9a9c2d5e1e1c21fa72b6458bdf19ff87';
-// 9a9c2d5e1e1c21fa72b6458bdf19ff87
-
 
 // Elements
 const searchButton = document.querySelector('#search-form button');
@@ -69,7 +67,6 @@ function saveSearchHistory(city) {
     if (!searchHistory.includes(city)) {
         searchHistory.push(city);
     }
-    // searchHistory.push(city);
 
     localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
 }

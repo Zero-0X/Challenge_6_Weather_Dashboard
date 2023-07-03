@@ -12,34 +12,43 @@
     <Header class="header">
         <h1>Weather Dashboard</h1>
     </Header>
-    <main id="dashboard-container">
-        <div id="search-form">
-            <input type="text" id="city-input" placeholder="Enter City Name">
-            <button>Search</button>
+    <div id="dashboard-layout">
+        <div id="weather-container">
+            <div id="local-weather">
+                <section id="current-weather">
+                    <h2 id="city-name"></h2>
+                    <div id="current-conditions">
+                        <p id="date"></p>
+                        <img id="weather-icon" alt="Weather Icon">
+                        <p id="temperature"></p>
+                        <p id="humidity"></p>
+                        <p id="wind-speed"></p>
+                    </div>
+                </section>
+                <section id="forecast">
+                    <h2>5-Day Forecast</h2>
+                    <div id="forecast-container"></div>
+                </section>
+            </div>
         </div>
-        <div id="local-weather">
-            <section id="current-weather">
-                <h2 id="city-name"></h2>
-                <div id="current-conditions">
-                    <p id="date"></p>
-                    <img id="weather-icon" alt="Weather Icon">
-                    <p id="temperature"></p>
-                    <p id="humidity"></p>
-                    <p id="wind-speed"></p>
-                </div>
-            </section>
-        </div>
-        <section id="forecast">
-            <h2>5-Day Forecast</h2>
-            <div id="forecast-container"></div>
-        </section>
         <div id="sidebar">
+            <div id="search-form">
+                <input type="text" id="city-input" placeholder="Enter City Name">
+                <button>Search</button>
+            </div>
             <aside id="search-history">
                 <h2>Search History</h2>
-                <ul id="history-list"></ul>
+                <ul id="history-list">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
             </aside>
         </div>
-    </main>
+    </div>
+    </div>
     <footer class="footer">
         <h3>Created by Roman V Kovbasniuk</h3>
     </footer>
