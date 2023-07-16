@@ -48,7 +48,7 @@ function fetchWeatherData(city) {
 function displayCurrentWeather(main, weather, wind) {
     cityName.textContent = `${main.name}`;
     dateElement.textContent = dayjs().format('MMMM D, YYYY');
-    weatherIcon.setAttribute('src', `http://openweathermap.org/img/w/${weather[0].icon}`);
+    weatherIcon.setAttribute('src', `http://openweathermap.org/img/w/${weather[0].icon}.png`);
     temperature.textContent = `Temperature: ${main.temp}°F`;
     humidity.textContent = `Humidity: ${main.humidity}%`;
     windSpeed.textContent = `Wind Speed: ${wind.speed} m/s`;
