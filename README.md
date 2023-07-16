@@ -2,7 +2,7 @@
 
 ## Description
 
-This Daily Planner was created using the starting code provided in the Challenge folder in the 05-Third-Party-APIs folder. Inluded are screenshots of Daily Planner at two different times to reflect the functionality of the js code. 
+This weather dashboard was created using vanilla js as well as JSON, in order to demonstrate how to set items to local storage while disaplying them on a webpage.  
 
 Link: 
 
@@ -12,12 +12,18 @@ N/A
 
 ## Usage
 
-The Daily Planner is meant to be used to plan tasks for the average American workday (9-5). The current user will be able to save their daily plans to local storage anytime they need to, and will remain accessible to that particular user on that specific device. The planner is only meant for small amounts of data, as that is the limit for local storage. The current date and time is available in the header for user accessibility. As the day progresses, the user will be notified of past, present, and future time-blocks, in order to make planning more efficient and accurate. 
-
-## Credits
-
-N/A
+The weather dashboard is designed to function as a front-end weather app would, uincluding a current forecast, with a 5-day forecast below. In addition a search-history list is provided, giving the user access to local ly stored items from previous searches, which they can access for future use.
 
 ## License
-
-Please refer to the LICENSE in the repo.
+MIT License
+  
+## Contributing
+utilized module-6 lessons, challenge-4 assignment, youtube, code-pen.io, and chatgpt to debug
+  
+## Tests
+test performed in broser and in the console
+  
+## Questions
+For any questions or inquiries, please reach out to me:
+  - GitHub: [Zero-0X](https://github.com/Zero-0X)
+  - Email: [rvkov536@gmail.com](mailto:rvkov536@gmail.com)
