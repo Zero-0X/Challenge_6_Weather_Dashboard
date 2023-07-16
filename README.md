@@ -4,7 +4,10 @@
 
 This weather dashboard was created using vanilla js as well as JSON, in order to demonstrate how to set items to local storage while disaplying them on a webpage.  
 
-Link: 
+Link: https://zero-0x.github.io/Challenge_6_Weather_Dashboard/
+
+![Screenshot (472)](https://github.com/Zero-0X/Challenge_6_Weather_Dashboard/assets/110013207/04645685-8ac2-4cb3-933e-be30e79f6979)
+![Screenshot (471)](https://github.com/Zero-0X/Challenge_6_Weather_Dashboard/assets/110013207/182ba698-1f07-4ae5-b044-3256241ab530)
 
 ## Installation
 
