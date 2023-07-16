@@ -26,7 +26,7 @@ searchButton.addEventListener('click', function (event) {
 
 // Fetch weather data from OpenWeather API
 function fetchWeatherData(city) {
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}&units=imperial&q=${city},US`;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}&units=imperial&q=${city},global`;
 
     fetch(apiUrl)
         .then(response => response.json())
@@ -48,11 +48,39 @@ function fetchWeatherData(city) {
 function displayCurrentWeather(main, weather, wind) {
     cityName.textContent = `${main.name}`;
     dateElement.textContent = dayjs().format('MMMM D, YYYY');
-    weatherIcon.setAttribute('src', `http://openweathermap.org/img/w/04d.png`);
+    weatherIcon.setAttribute('src', `http://openweathermap.org/img/w/${weather[0].icon}`);
     temperature.textContent = `Temperature: ${main.temp}°F`;
     humidity.textContent = `Humidity: ${main.humidity}%`;
     windSpeed.textContent = `Wind Speed: ${wind.speed} m/s`;
 }
+
+// display the 5-day forecast
+function displayForecast () {
+    forecastContainer.innerHTML = '';
+
+    const forecastData = data.daily;
+  
+    forecastData.forEach(day => {
+      const forecastDate = dayjs.unix(day.dt).format('MMMM D, YYYY');
+      const forecastIcon = day.weather[0].icon;
+      const forecastTemperature = `Temperature: ${day.temp.day}°F`;
+      const forecastHumidity = `Humidity: ${day.humidity}%`;
+      const forecastWindSpeed = `Wind Speed: ${day.wind_speed} m/s`;
+  
+      const forecastCard = document.createElement('div');
+      forecastCard.classList.add('forecast-card');
+  
+      forecastCard.innerHTML = `
+        <h3>${forecastDate}</h3>
+        <img src="http://openweathermap.org/img/w/${forecastIcon}.png" alt="Weather Icon">
+        <p>${forecastTemperature}</p>
+        <p>${forecastHumidity}</p>
+        <p>${forecastWindSpeed}</p>
+      `;
+  
+      forecastContainer.appendChild(forecastCard);
+    });
+  }
 
 // Save city to search history
 function saveSearchHistory(city) {
